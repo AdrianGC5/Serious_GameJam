@@ -1,3 +1,59 @@
 [gd_scene format=3 uid="uid://elst0xn32iil"]
 
+[ext_resource type="Texture2D" uid="uid://vmxf75gp8r86" path="res://Assets/Opponent.png" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://cqvuw2k05ylvt" path="res://Scenes/game.gd" id="1_qxrlw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
+
+[sub_resource type="Animation" id="Animation_qxrlw"]
+resource_name = "Pirate"
+
+[sub_resource type="Animation" id="Animation_wrm1d"]
+resource_name = "Show"
+
+[sub_resource type="Animation" id="Animation_3dryh"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wowpa"]
+_data = {
+&"Pirate": SubResource("Animation_qxrlw"),
+&"Show": SubResource("Animation_wrm1d"),
+&"Table": SubResource("Animation_3dryh")
+}
+
 [node name="Game" type="Node2D" unique_id=2119919991]
+script = ExtResource("1_qxrlw")
+
+[node name="Opponent" type="Sprite2D" parent="." unique_id=1368864854]
+position = Vector2(-4.875061, -16)
+scale = Vector2(3.44, 3.6)
+texture = ExtResource("1_ebmjs")
+
+[node name="Table" type="Node" parent="." unique_id=736007117]
+
+[node name="TableSprite" type="MeshInstance2D" parent="Table" unique_id=932164693]
+position = Vector2(3.3974648e-06, 499.25)
+scale = Vector2(1152, 646.5)
+mesh = SubResource("BoxMesh_yf5fn")
+
+[node name="Button" type="Button" parent="Table" unique_id=562783358]
+offset_left = -175.87506
+offset_top = 386.0
+offset_right = 184.12494
+offset_bottom = 702.0
+theme_override_font_sizes/font_size = 100
+text = "Wheel"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=551162362]
+libraries/ = SubResource("AnimationLibrary_wowpa")
+
+[node name="Curtain" type="ColorRect" parent="." unique_id=1431954107]
+visible = false
+offset_left = -46.0
+offset_top = -49.0
+offset_right = 1243.0
+offset_bottom = 751.0
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1166757095]
