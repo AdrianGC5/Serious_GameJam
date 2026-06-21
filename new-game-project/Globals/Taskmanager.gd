@@ -1,15 +1,14 @@
 extends Node
 
+signal start
 signal spin
 signal death
 signal end
+signal pirate
+signal table
 
-var cams_are_off: bool = false
-var crate_check: int
-var freeze_player:  bool
-var resetted : bool = false
-var broken : bool = false
-var player_inventory: String
+var game_has_booted: bool
+var game_has_started: bool
 
 var is_interacting: bool
 

@@ -1,0 +1,35 @@
+~ start
+if Taskmanager.game_has_started == false:
+	if Taskmanager.game_has_booted == false:
+		Alright ye Seadogs!
+		Let us[wait=0.5] [shake]BEGIN!!
+		set Taskmanager.game_has_booted = true
+		=> END
+
+	elif Taskmanager.game_has_booted == true:
+		You. New member. Arrrre Ye ready?
+	- Aye!
+		YEAAA!
+		set Taskmanager.game_has_started = true
+		set Taskmanager.table.emit()
+		
+		=> END
+	- Nay!
+		What? Ye dont know how to play?
+		Its simple kid, 
+		set Taskmanager.table.emit()
+		ye see that wheel on the table?
+		Thats what decides how much yer gonna drink
+		ye can control how much force ye want to use on the wheel, but it must spin atleast once.
+		the wheel can also land on cards
+		these cards give ye stat bonuses
+		but i'll let ye see what they can do for yerself.
+		set Taskmanager.pirate.emit()
+		alright[wait=0.5], let us [wait=0.5][shake]BEGIN!!
+		set Taskmanager.game_has_started = true
+		set Taskmanager.table.emit()
+		=> END
+
+elif Taskmanager.game_has_started == true:
+	game loops from here
+	=> END

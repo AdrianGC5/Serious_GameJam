@@ -2,58 +2,229 @@
 
 [ext_resource type="Texture2D" uid="uid://vmxf75gp8r86" path="res://Assets/Opponent.png" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://cqvuw2k05ylvt" path="res://Scenes/game.gd" id="1_qxrlw"]
+[ext_resource type="Resource" uid="uid://getpnymt3jho" path="res://Dialogue/tutorial.dialogue" id="2_wrm1d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
 
 [sub_resource type="Animation" id="Animation_qxrlw"]
 resource_name = "Pirate"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.314, 1),
+"update": 0,
+"values": [Vector2(0, 500), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wowpa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D/Curtain:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.1415927]
+}
 
 [sub_resource type="Animation" id="Animation_wrm1d"]
 resource_name = "Show"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/Curtain:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_3dryh"]
 resource_name = "new_animation"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4666667),
+"transitions": PackedFloat32Array(0.314, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_i6g32"]
+resource_name = "ZoomIn"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_1l0tm"]
+resource_name = "ZoomOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35355344, 1),
+"update": 0,
+"values": [Vector2(1.3, 1.3), Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wowpa"]
 _data = {
 &"Pirate": SubResource("Animation_qxrlw"),
+&"RESET": SubResource("Animation_wowpa"),
 &"Show": SubResource("Animation_wrm1d"),
-&"Table": SubResource("Animation_3dryh")
+&"Table": SubResource("Animation_3dryh"),
+&"ZoomIn": SubResource("Animation_i6g32"),
+&"ZoomOut": SubResource("Animation_1l0tm")
 }
 
 [node name="Game" type="Node2D" unique_id=2119919991]
 script = ExtResource("1_qxrlw")
+dialogue = ExtResource("2_wrm1d")
 
 [node name="Opponent" type="Sprite2D" parent="." unique_id=1368864854]
 position = Vector2(-4.875061, -16)
 scale = Vector2(3.44, 3.6)
 texture = ExtResource("1_ebmjs")
 
-[node name="Table" type="Node" parent="." unique_id=736007117]
+[node name="Label" type="Label" parent="." unique_id=1879507183]
+offset_left = -144.0
+offset_top = -151.0
+offset_right = 148.0
+offset_bottom = -82.0
+theme_override_font_sizes/font_size = 50
+text = "Test Subject"
 
-[node name="TableSprite" type="MeshInstance2D" parent="Table" unique_id=932164693]
+[node name="TableSprite" type="MeshInstance2D" parent="." unique_id=932164693]
 position = Vector2(3.3974648e-06, 499.25)
 scale = Vector2(1152, 646.5)
 mesh = SubResource("BoxMesh_yf5fn")
 
-[node name="Button" type="Button" parent="Table" unique_id=562783358]
-offset_left = -175.87506
-offset_top = 386.0
-offset_right = 184.12494
-offset_bottom = 702.0
+[node name="Button" type="Button" parent="." unique_id=562783358]
+offset_left = -176.0
+offset_top = 351.0
+offset_right = 184.0
+offset_bottom = 667.0
+rotation = -3.1415927
+pivot_offset = Vector2(175, 151)
 theme_override_font_sizes/font_size = 100
 text = "Wheel"
-metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=551162362]
 libraries/ = SubResource("AnimationLibrary_wowpa")
 
-[node name="Curtain" type="ColorRect" parent="." unique_id=1431954107]
-visible = false
-offset_left = -46.0
-offset_top = -49.0
-offset_right = 1243.0
-offset_bottom = 751.0
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1166757095]
+
+[node name="Curtain" type="ColorRect" parent="Camera2D" unique_id=1431954107]
+offset_left = -660.0
+offset_top = -376.0
+offset_right = 629.0
+offset_bottom = 424.0
+mouse_filter = 2
 color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1166757095]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
