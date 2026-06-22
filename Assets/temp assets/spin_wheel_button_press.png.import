@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxvdj2ohfyxtu"
-path="res://.godot/imported/spin_wheel_button_press.png-a83e11ef6a63f2654480195b1fa6c2ac.ctex"
+path="res://.godot/imported/spin_wheel_button_press.png-a7715d1980dc5cd395461fc3098ab438.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://temp assets/spin_wheel_button_press.png"
-dest_files=["res://.godot/imported/spin_wheel_button_press.png-a83e11ef6a63f2654480195b1fa6c2ac.ctex"]
+source_file="res://Assets/temp assets/spin_wheel_button_press.png"
+dest_files=["res://.godot/imported/spin_wheel_button_press.png-a7715d1980dc5cd395461fc3098ab438.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://browv4i54kfkh"
-path="res://.godot/imported/spin_wheel_arrow.png-03669f60d4bd2da707ea1202e1401a06.ctex"
+uid="uid://xxrwhejc7xgg"
+path="res://.godot/imported/spin_wheel_background.png-936968a8542b22dc050bc12f01bcaa51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://temp assets/spin_wheel_arrow.png"
-dest_files=["res://.godot/imported/spin_wheel_arrow.png-03669f60d4bd2da707ea1202e1401a06.ctex"]
+source_file="res://Assets/temp assets/spin_wheel_background.png"
+dest_files=["res://.godot/imported/spin_wheel_background.png-936968a8542b22dc050bc12f01bcaa51.ctex"]
 
 [params]
 
