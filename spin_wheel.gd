@@ -86,5 +86,12 @@ func _on_btn_spin_pressed():
 				#signal for another scene
 				sig_reward.emit(item.ma_vat_pham)
 		tween.tween_property(%front, "rotation_degrees", reward_position +  360 * speed * power , 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
-		tween.finished
+	
+		for item in vat_pham:
+			if reward_position >= item.from - 180 and reward_position <= item.to - 180:
+				print(item.name)
+				#signal for another scene
+				sig_reward.emit(item.ma_vat_pham)
+		tween.tween_property(%front, "rotation_degrees", reward_position +  360 * speed * power , 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
+	
 	

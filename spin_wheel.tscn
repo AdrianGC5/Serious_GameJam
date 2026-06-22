@@ -24,12 +24,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -444.0
-offset_top = -920.0
-offset_right = 456.0
-offset_bottom = -20.0
+offset_left = -232.0
+offset_top = -276.0
+offset_right = 668.0
+offset_bottom = 624.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.64301956, 0.64820695)
 texture = ExtResource("1_pg7ai")
 
 [node name="front" type="TextureRect" parent="background" unique_id=1333736777]
@@ -99,7 +100,6 @@ pivot_offset = Vector2(100, 0)
 texture = ExtResource("3_q7ulo")
 
 [node name="yourArrow" type="TextureRect" parent="background" unique_id=1693099528]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
