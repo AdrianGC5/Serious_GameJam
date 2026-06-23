@@ -1,9 +1,31 @@
 extends Control
 
+signal enemy_reward
+signal player_reward
+
+func _ready() -> void:
+	%Dm.max_value = maxdrunknes
+	set_health_bar()
+
+@export var maxdrunknes = 10
+@onready var currentdrunkes = 0
 @export var is_spin: bool = false
 @export var speed: int = 10
 @export var power: int = 2
-@export var reward_position = 0 & 180
+@export var reward_position = 0
+
+func set_health_bar() -> void:
+	%Dm.value = currentdrunkes
+
+func _on_h_scroll_bar_value_changed(value: float) -> void:
+	power = int(value)
+	print(power)
+
+
+var CurDri = []
+
+@export var rum: PackedScene
+
 signal sig_reward
 var vat_pham = [
 	{
@@ -78,20 +100,42 @@ func _on_btn_spin_pressed():
 				var rad_ = fmod(old_rotation_degrees, 360)
 				%front.rotation_degrees = rad_
 			)
-		reward_position = randi_range(0, 360) #random position from 0 to 360 degrees
+		reward_position = randi_range(0, 360) + power*5
+		reward_position = fmod(reward_position, 360) #random position from 0 to 360 degrees
+		var opposite_angle = fmod(reward_position + 180, 360)
+		tween.tween_property(%front, "rotation_degrees", rotation_degrees +  360 * speed * reward_position , 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
+		
 
 		for item in vat_pham:
 			if reward_position >= item.from - 22.5 and reward_position <= item.to - 22.5:
 				print(item.name)
 				#signal for another scene
 				sig_reward.emit(item.ma_vat_pham)
-		tween.tween_property(%front, "rotation_degrees", reward_position +  360 * speed * power , 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
+				break
 	
+
 		for item in vat_pham:
-			if reward_position >= item.from - 180 and reward_position <= item.to - 180:
+			if opposite_angle >= item.from - 22.5 and opposite_angle <= item.to - 22.5:
 				print(item.name)
 				#signal for another scene
 				sig_reward.emit(item.ma_vat_pham)
-		tween.tween_property(%front, "rotation_degrees", reward_position +  360 * speed * power , 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
+				break
 	
 	
+
+
+func drinked():
+	currentdrunkes = currentdrunkes + 1
+	print(currentdrunkes)
+	set_health_bar()
+
+
+func Healed():
+	currentdrunkes -= 1
+	print(currentdrunkes)
+	set_health_bar()
+
+
+func nada():
+	print(currentdrunkes)
+	set_health_bar()
