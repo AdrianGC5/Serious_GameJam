@@ -3,16 +3,18 @@ extends Control
 signal enemy_reward
 signal player_reward
 
+
 func _ready() -> void:
 	%Dm.max_value = maxdrunknes
 	set_health_bar()
 
 @export var maxdrunknes = 10
-@onready var currentdrunkes = 0
+@onready var currentdrunkes: int = 0
 @export var is_spin: bool = false
 @export var speed: int = 10
 @export var power: int = 2
 @export var reward_position = 0
+var holddrink = 0
 
 func set_health_bar() -> void:
 	%Dm.value = currentdrunkes
@@ -22,7 +24,6 @@ func _on_h_scroll_bar_value_changed(value: float) -> void:
 	print(power)
 
 
-var CurDri = []
 
 @export var rum: PackedScene
 
@@ -110,6 +111,7 @@ func _on_btn_spin_pressed():
 			if reward_position >= item.from - 22.5 and reward_position <= item.to - 22.5:
 				print(item.name)
 				#signal for another scene
+				enemy_reward.emit()
 				sig_reward.emit(item.ma_vat_pham)
 				break
 	
@@ -118,24 +120,29 @@ func _on_btn_spin_pressed():
 			if opposite_angle >= item.from - 22.5 and opposite_angle <= item.to - 22.5:
 				print(item.name)
 				#signal for another scene
+				player_reward.emit()
 				sig_reward.emit(item.ma_vat_pham)
 				break
 	
 	
 
 
-func drinked():
+
+
+var Bdrink = func _on_drinkger_rum() -> void:
 	currentdrunkes = currentdrunkes + 1
 	print(currentdrunkes)
 	set_health_bar()
 
 
-func Healed():
-	currentdrunkes -= 1
+var non = func _on_drinkger_nada() -> void:
 	print(currentdrunkes)
 	set_health_bar()
 
 
-func nada():
+var milk = func _on_drinkger_milk() -> void:
+	currentdrunkes = currentdrunkes - 1
+	if currentdrunkes < 0:
+		currentdrunkes = 0
 	print(currentdrunkes)
 	set_health_bar()

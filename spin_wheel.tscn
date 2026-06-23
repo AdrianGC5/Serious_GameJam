@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c5edu3717wlwi" path="res://temp assets/spin_wheel_button.png" id="3_rlwr1"]
 [ext_resource type="Texture2D" uid="uid://dxvdj2ohfyxtu" path="res://temp assets/spin_wheel_button_press.png" id="4_q7ulo"]
 [ext_resource type="Texture2D" uid="uid://cr6x06rn1alce" path="res://temp assets/spin_wheel_button_ring.png" id="4_umxd3"]
+[ext_resource type="Script" uid="uid://s42be6kjjjk2" path="res://sprite_2d.gd" id="9_g1tf1"]
+[ext_resource type="Script" uid="uid://c6curg4mwhgql" path="res://node_2d.gd" id="10_l53vt"]
 
 [sub_resource type="GDScript" id="GDScript_q7ulo"]
 script/source = "extends ProgressBar
@@ -134,9 +136,6 @@ fill_mode = 2
 show_percentage = false
 script = SubResource("GDScript_q7ulo")
 
-[node name="drink_position" type="Marker2D" parent="." unique_id=1204731407]
-position = Vector2(636, 193)
-
 [node name="HScrollBar" type="HScrollBar" parent="." unique_id=729020280]
 layout_mode = 0
 offset_left = 12.0
@@ -149,5 +148,17 @@ step = 1.0
 value = 1.0
 rounded = true
 
+[node name="random" type="Sprite2D" parent="." unique_id=2129707583]
+position = Vector2(635, 180)
+script = ExtResource("9_g1tf1")
+
+[node name="drinkger" type="Node2D" parent="random" unique_id=1378873049]
+script = ExtResource("10_l53vt")
+
 [connection signal="pressed" from="background/btn_spin" to="." method="_on_btn_spin_pressed"]
 [connection signal="value_changed" from="HScrollBar" to="." method="_on_h_scroll_bar_value_changed"]
+[connection signal="milk" from="random/drinkger" to="." method="_on_drinkger_milk"]
+[connection signal="milk" from="random/drinkger" to="random" method="_on_drinkger_milk"]
+[connection signal="nada" from="random/drinkger" to="." method="_on_drinkger_nada"]
+[connection signal="rum" from="random/drinkger" to="." method="_on_drinkger_rum"]
+[connection signal="rum" from="random/drinkger" to="random" method="_on_drinkger_rum"]
