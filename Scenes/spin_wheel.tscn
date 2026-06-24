@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://dj1rq0xj6kgg2"]
+
+[ext_resource type="Texture2D" uid="uid://xxrwhejc7xgg" path="res://Assets/temp assets/spin_wheel_background.png" id="1_pg7ai"]
+[ext_resource type="Script" uid="uid://brymcaj0wi0ks" path="res://Scenes/spin_wheel.gd" id="1_umxd3"]
+[ext_resource type="Texture2D" uid="uid://iree1cmg334d" path="res://Assets/temp assets/spin_wheel_front_empty.png" id="2_rb3tp"]
+[ext_resource type="Texture2D" uid="uid://browv4i54kfkh" path="res://Assets/temp assets/spin_wheel_arrow.png" id="3_q7ulo"]
+[ext_resource type="Texture2D" uid="uid://c5edu3717wlwi" path="res://Assets/temp assets/spin_wheel_button.png" id="3_rlwr1"]
+[ext_resource type="Texture2D" uid="uid://dxvdj2ohfyxtu" path="res://Assets/temp assets/spin_wheel_button_press.png" id="4_q7ulo"]
+[ext_resource type="Texture2D" uid="uid://cr6x06rn1alce" path="res://Assets/temp assets/spin_wheel_button_ring.png" id="4_umxd3"]
+
+[node name="spin_wheel" type="Control" unique_id=214756786]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_umxd3")
+
+[node name="background" type="TextureRect" parent="." unique_id=740976349]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -276.0
+offset_right = 668.0
+offset_bottom = 624.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.64301956, 0.64820695)
+texture = ExtResource("1_pg7ai")
+
+[node name="front" type="TextureRect" parent="background" unique_id=1333736777]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -450.0
+offset_right = 450.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9078285, 0.9078285)
+pivot_offset = Vector2(450.10156, 450.60922)
+texture = ExtResource("2_rb3tp")
+
+[node name="background_button" type="TextureRect" parent="background" unique_id=2117991458]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 96)
+texture = ExtResource("4_umxd3")
+
+[node name="btn_spin" type="TextureButton" parent="background" unique_id=1222113285]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8331047, 0.8331047)
+pivot_offset = Vector2(100, 100)
+texture_normal = ExtResource("3_rlwr1")
+texture_pressed = ExtResource("4_q7ulo")
+stretch_mode = 3
+
+[node name="arrow" type="TextureRect" parent="background" unique_id=146834618]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 181.0
+grow_horizontal = 2
+scale = Vector2(0.7046296, 0.7046296)
+pivot_offset = Vector2(100, 0)
+texture = ExtResource("3_q7ulo")
+
+[node name="yourArrow" type="TextureRect" parent="background" unique_id=1693099528]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -181.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.66626304, 0.66626304)
+pivot_offset = Vector2(100, 181)
+texture = ExtResource("3_q7ulo")
+flip_v = true
+
+[connection signal="pressed" from="background/btn_spin" to="." method="_on_btn_spin_pressed"]
