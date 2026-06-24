@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dxvdj2ohfyxtu" path="res://Assets/temp assets/spin_wheel_button_press.png" id="4_q7ulo"]
 [ext_resource type="Texture2D" uid="uid://cr6x06rn1alce" path="res://Assets/temp assets/spin_wheel_button_ring.png" id="4_umxd3"]
 
-
 [node name="spin_wheel" type="Control" unique_id=214756786]
 layout_mode = 3
 anchors_preset = 15

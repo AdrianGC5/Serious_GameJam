@@ -6,9 +6,15 @@ signal death
 signal end
 signal pirate
 signal table
+signal enemy_spin
+signal spin_finished
 
 var game_has_booted: bool
 var game_has_started: bool
+
+var wheel_result: String
+
+var player_turn: bool
 
 var is_interacting: bool
 

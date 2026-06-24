@@ -1,9 +1,12 @@
 extends Control
 
 @export var is_spin: bool = false
-@export var speed: int = 10
-@export var power: int = 2
+@export var speed: int = 6
+@export var power: int = 6
 @export var reward_position = 0 & 180
+
+@onready var btn_spin: TextureButton = $background/btn_spin
+
 signal sig_reward
 var vat_pham = [
 	{
@@ -64,21 +67,39 @@ var vat_pham = [
 	}
 	]
 
+func _ready() -> void:
+	Taskmanager.enemy_spin.connect(_on_btn_spin_pressed)
+
+
+
 func _on_btn_spin_pressed():
 	if is_spin == false:
 		is_spin = true
+		Taskmanager.spin.emit()
+		
+			
 		var tween = get_tree().create_tween().set_parallel(true)
 		tween.connect("finished", func():
 			#after tween finish animation, this function is call
 			var old_rotation_degrees = %front.rotation_degrees
 			#set is_spin = false to tell for user can press again
+			
 			is_spin = false
+			Taskmanager.spin_finished.emit()
+			if Taskmanager.player_turn == true:
+				Taskmanager.player_turn = false
+				btn_spin.disabled = true
+			elif Taskmanager.player_turn == false:
+				Taskmanager.player_turn = true
+				btn_spin.disabled = false
+				
 			if old_rotation_degrees > 360:
 				#This part is to fix the error that when rotating the steamer once, it will not rotate counterclockwise
 				var rad_ = fmod(old_rotation_degrees, 360)
 				%front.rotation_degrees = rad_
 			)
 		reward_position = randi_range(0, 360) #random position from 0 to 360 degrees
+		
 
 		for item in vat_pham:
 			if reward_position >= item.from - 22.5 and reward_position <= item.to - 22.5:
@@ -90,8 +111,9 @@ func _on_btn_spin_pressed():
 		for item in vat_pham:
 			if reward_position >= item.from - 180 and reward_position <= item.to - 180:
 				print(item.name)
+				Taskmanager.wheel_result = item.name
 				#signal for another scene
 				sig_reward.emit(item.ma_vat_pham)
 		tween.tween_property(%front, "rotation_degrees", reward_position +  360 * speed * power , 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CIRC)
-	
+		
 	
