@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cl7h4swhlhfya" path="res://UpgradeSystem/scripts/upgrade_manager.gd" id="1_x0u1e"]
 [ext_resource type="Script" uid="uid://dnuo57oj4b8rp" path="res://UpgradeSystem/scripts/upgrade_list.gd" id="2_ja2im"]
 
-
 [node name="UpgradeScreen(Control)" type="Control" unique_id=524535382]
 layout_mode = 3
 anchors_preset = 0

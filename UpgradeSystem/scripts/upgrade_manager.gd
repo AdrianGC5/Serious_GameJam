@@ -26,7 +26,7 @@ func pick_random_upgrades():
 	display_upgrade_on_card(card3, current_choices[2])
 
 func display_upgrade_on_card(card: VBoxContainer, upgrade: UpgradeData):
-	card.get_node("NameLabel").text = upgrade.name
+	card.get_node("NameLabel").text = upgrade.upgrade_name
 	card.get_node("DescriptionLabel").text = upgrade.description
 	card.get_node("ProLabel").text = "Pro: " + upgrade.pro
 	card.get_node("ConLabel").text = "Con: " + upgrade.con
@@ -38,7 +38,7 @@ func connect_buttons():
 
 func on_upgrade_picked(index: int):
 	chosen_upgrade = current_choices[index]
-	print("Player picked: " + chosen_upgrade.name)
+	print("Player picked: " + chosen_upgrade.upgrade_name)
 	card1.hide()
 	card2.hide()
 	card3.hide()
