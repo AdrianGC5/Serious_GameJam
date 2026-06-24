@@ -31,5 +31,5 @@ if Taskmanager.game_has_started == false:
 		=> END
 
 elif Taskmanager.game_has_started == true:
-	game loops from here
+	"Idk what to put as lines here, gimme ideas" -Kenz
 	=> END

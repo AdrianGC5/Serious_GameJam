@@ -7,6 +7,9 @@ extends Node2D
 func _ready() -> void:
 	Taskmanager.table.connect(table)
 	Taskmanager.pirate.connect(pirate)
+	Taskmanager.spin.connect(_on_spin)
+	
+	Taskmanager.player_turn = true
 	
 	DialogueManager.show_dialogue_balloon(dialogue)
 	await DialogueManager.dialogue_ended
@@ -26,9 +29,9 @@ func _process(delta: float) -> void:
 		pass
 
 
-func _on_button_pressed() -> void:
+func _on_spin() -> void:
 	animation_player.play("ZoomIn")
-	await animation_player.animation_finished
+	await Taskmanager.spin_finished
 	animation_player.play("ZoomOut")
 	await animation_player.animation_finished
 	Taskmanager.pirate.emit()
@@ -36,3 +39,6 @@ func _on_button_pressed() -> void:
 	DialogueManager.show_dialogue_balloon(dialogue)
 	await DialogueManager.dialogue_ended
 	Taskmanager.table.emit()
+	await get_tree().create_timer(1.5).timeout
+	if !Taskmanager.player_turn:
+		Taskmanager.enemy_spin.emit()
