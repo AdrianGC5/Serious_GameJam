@@ -32,6 +32,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-144, -76)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.875061, -16)]
+}
 
 [sub_resource type="Animation" id="Animation_h4fw4"]
 resource_name = "Show"
@@ -61,10 +73,26 @@ tracks/1/keys = {
 "values": [Vector2(-144, -76), Vector2(-144, -259)]
 }
 
+[sub_resource type="Animation" id="Animation_ldgsr"]
+resource_name = "Talk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(0.314, 1),
+"update": 0,
+"values": [Vector2(-4.875061, 9), Vector2(-4.875061, -16)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ldgsr"]
 _data = {
 &"RESET": SubResource("Animation_v158k"),
-&"Show": SubResource("Animation_h4fw4")
+&"Show": SubResource("Animation_h4fw4"),
+&"Talk": SubResource("Animation_ldgsr")
 }
 
 [sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
@@ -262,9 +290,25 @@ libraries/ = SubResource("AnimationLibrary_wowpa")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1166757095]
 
 [node name="Curtain" type="ColorRect" parent="Camera2D" unique_id=1431954107]
+visible = false
 offset_left = -660.0
 offset_top = -376.0
 offset_right = 629.0
 offset_bottom = 424.0
 mouse_filter = 2
 color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="UI" type="Control" parent="Camera2D" unique_id=82554869]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

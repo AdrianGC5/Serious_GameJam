@@ -8,6 +8,7 @@ signal pirate
 signal table
 signal enemy_spin
 signal spin_finished
+signal talking
 
 var game_has_booted: bool
 var game_has_started: bool
