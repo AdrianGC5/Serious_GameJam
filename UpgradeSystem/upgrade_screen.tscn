@@ -2,6 +2,20 @@
 
 [ext_resource type="Script" uid="uid://dytygixssbyff" path="res://UpgradeSystem/scripts/upgrade_manager.gd" id="1_x0u1e"]
 [ext_resource type="Script" uid="uid://ogi5r3h7dj3t" path="res://UpgradeSystem/scripts/upgrade_list.gd" id="2_ja2im"]
+[ext_resource type="Texture2D" uid="uid://kmew0i1esp5d" path="res://Assets/paper.jpg" id="3_2310h"]
+[ext_resource type="Texture2D" uid="uid://bpv5kupnst1ur" path="res://Assets/button.png" id="4_1sob0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a50a3"]
+texture = ExtResource("3_2310h")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcg65"]
+texture = ExtResource("4_1sob0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cktf0"]
+texture = ExtResource("4_1sob0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ujrhh"]
+texture = ExtResource("4_1sob0")
 
 [node name="UpgradeScreen" type="Control" unique_id=429151589]
 modulate = Color(0.9376289, 0.9376289, 0.9376289, 0.972549)
@@ -56,83 +70,149 @@ grow_vertical = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Card1" type="VBoxContainer" parent="HBoxContainer" unique_id=249877144]
+[node name="Card1" type="PanelContainer" parent="HBoxContainer" unique_id=1942712859]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a50a3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Card1" unique_id=249877144]
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Name" type="Label" parent="HBoxContainer/Card1" unique_id=2056324418]
+[node name="Name" type="Label" parent="HBoxContainer/Card1/VBoxContainer" unique_id=2056324418]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Upgrade Name"
+horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="HBoxContainer/Card1" unique_id=1928446176]
+[node name="Description" type="Label" parent="HBoxContainer/Card1/VBoxContainer" unique_id=1928446176]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3137255)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Pro" type="Label" parent="HBoxContainer/Card1" unique_id=273169239]
+[node name="Pro" type="Label" parent="HBoxContainer/Card1/VBoxContainer" unique_id=273169239]
 layout_mode = 2
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Con" type="Label" parent="HBoxContainer/Card1" unique_id=1349328636]
+[node name="Con" type="Label" parent="HBoxContainer/Card1/VBoxContainer" unique_id=1349328636]
 layout_mode = 2
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="PickButton" type="Button" parent="HBoxContainer/Card1" unique_id=1315326970]
+[node name="PickButton" type="Button" parent="HBoxContainer/Card1/VBoxContainer" unique_id=1315326970]
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_wcg65")
 text = "Pick"
 
-[node name="Card2" type="VBoxContainer" parent="HBoxContainer" unique_id=1578893449]
+[node name="Card2" type="PanelContainer" parent="HBoxContainer" unique_id=770127150]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a50a3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Card2" unique_id=1833608357]
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Name" type="Label" parent="HBoxContainer/Card2" unique_id=1757703554]
+[node name="Name" type="Label" parent="HBoxContainer/Card2/VBoxContainer" unique_id=1809376985]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Upgrade Name"
+horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="HBoxContainer/Card2" unique_id=820917559]
+[node name="Description" type="Label" parent="HBoxContainer/Card2/VBoxContainer" unique_id=1692932504]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3137255)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Pro" type="Label" parent="HBoxContainer/Card2" unique_id=370719754]
+[node name="Pro" type="Label" parent="HBoxContainer/Card2/VBoxContainer" unique_id=914536847]
 layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Con" type="Label" parent="HBoxContainer/Card2" unique_id=1961292025]
+[node name="Con" type="Label" parent="HBoxContainer/Card2/VBoxContainer" unique_id=478499695]
 layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="PickButton" type="Button" parent="HBoxContainer/Card2" unique_id=941619772]
+[node name="PickButton" type="Button" parent="HBoxContainer/Card2/VBoxContainer" unique_id=103910301]
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 0.9882353)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_cktf0")
 text = "Pick"
 
-[node name="Card3" type="VBoxContainer" parent="HBoxContainer" unique_id=1946619194]
+[node name="Card3" type="PanelContainer" parent="HBoxContainer" unique_id=904025878]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a50a3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Card3" unique_id=73810112]
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Name" type="Label" parent="HBoxContainer/Card3" unique_id=1720694723]
+[node name="Name" type="Label" parent="HBoxContainer/Card3/VBoxContainer" unique_id=2018772676]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Upgrade Name"
+horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="HBoxContainer/Card3" unique_id=374231527]
+[node name="Description" type="Label" parent="HBoxContainer/Card3/VBoxContainer" unique_id=302198814]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3137255)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Pro" type="Label" parent="HBoxContainer/Card3" unique_id=1428895600]
+[node name="Pro" type="Label" parent="HBoxContainer/Card3/VBoxContainer" unique_id=2121908842]
 layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Con" type="Label" parent="HBoxContainer/Card3" unique_id=2054331639]
+[node name="Con" type="Label" parent="HBoxContainer/Card3/VBoxContainer" unique_id=770064758]
 layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="PickButton" type="Button" parent="HBoxContainer/Card3" unique_id=831742639]
+[node name="PickButton" type="Button" parent="HBoxContainer/Card3/VBoxContainer" unique_id=576963930]
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 0.972549)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_ujrhh")
 text = "Pick"

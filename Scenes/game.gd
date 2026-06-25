@@ -73,8 +73,8 @@ func _resolve_spin_and_damage() -> bool:
 
 func _handle_duel_won() -> void:
 	await get_tree().create_timer(1.5).timeout
-	upgrade_screen.show_upgrade_selection()
-	await upgrade_screen.upgrade_picked
+	if upgrade_screen.show_upgrade_selection():
+		await upgrade_screen.upgrade_picked
 	Taskmanager.reset_between_duels()
 
 
