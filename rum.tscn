@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dfbw83j8torpv"]
+
+[ext_resource type="Texture2D" uid="uid://dyp2wo3hkys5i" path="res://bloc.png" id="1_veyfr"]
+
+[node name="drink" type="Node2D" unique_id=186658024]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1076025399]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_veyfr")

@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://dj1rq0xj6kgg2"]
 
-[ext_resource type="Texture2D" uid="uid://xxrwhejc7xgg" path="res://Assets/temp assets/spin_wheel_background.png" id="1_pg7ai"]
-[ext_resource type="Script" uid="uid://brymcaj0wi0ks" path="res://Scenes/spin_wheel.gd" id="1_umxd3"]
-[ext_resource type="Texture2D" uid="uid://iree1cmg334d" path="res://Assets/temp assets/spin_wheel_front_empty.png" id="2_rb3tp"]
-[ext_resource type="Texture2D" uid="uid://browv4i54kfkh" path="res://Assets/temp assets/spin_wheel_arrow.png" id="3_q7ulo"]
-[ext_resource type="Texture2D" uid="uid://c5edu3717wlwi" path="res://Assets/temp assets/spin_wheel_button.png" id="3_rlwr1"]
-[ext_resource type="Texture2D" uid="uid://dxvdj2ohfyxtu" path="res://Assets/temp assets/spin_wheel_button_press.png" id="4_q7ulo"]
-[ext_resource type="Texture2D" uid="uid://cr6x06rn1alce" path="res://Assets/temp assets/spin_wheel_button_ring.png" id="4_umxd3"]
+[ext_resource type="Script" uid="uid://lmwrwvwy7pds" path="res://spin_wheel.gd" id="1_umxd3"]
+[ext_resource type="Texture2D" uid="uid://xxrwhejc7xgg" path="res://Assets/temp assets/spin_wheel_background.png" id="2_q7ulo"]
+[ext_resource type="Texture2D" uid="uid://iree1cmg334d" path="res://Assets/temp assets/spin_wheel_front_empty.png" id="3_umxd3"]
+[ext_resource type="Texture2D" uid="uid://cr6x06rn1alce" path="res://Assets/temp assets/spin_wheel_button_ring.png" id="4_xyac8"]
+[ext_resource type="Texture2D" uid="uid://c5edu3717wlwi" path="res://Assets/temp assets/spin_wheel_button.png" id="5_g1tf1"]
+[ext_resource type="Texture2D" uid="uid://dxvdj2ohfyxtu" path="res://Assets/temp assets/spin_wheel_button_press.png" id="6_l53vt"]
+[ext_resource type="Texture2D" uid="uid://browv4i54kfkh" path="res://Assets/temp assets/spin_wheel_arrow.png" id="7_0p05e"]
+[ext_resource type="Script" uid="uid://s42be6kjjjk2" path="res://sprite_2d.gd" id="8_xyac8"]
+[ext_resource type="Script" uid="uid://c6curg4mwhgql" path="res://node_2d.gd" id="9_g1tf1"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_kgtat"]
 
 [node name="spin_wheel" type="Control" unique_id=214756786]
 layout_mode = 3
@@ -32,7 +35,7 @@ offset_bottom = 624.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.64301956, 0.64820695)
-texture = ExtResource("1_pg7ai")
+texture = ExtResource("2_q7ulo")
 
 [node name="front" type="TextureRect" parent="background" unique_id=1333736777]
 unique_name_in_owner = true
@@ -50,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9078285, 0.9078285)
 pivot_offset = Vector2(450.10156, 450.60922)
-texture = ExtResource("2_rb3tp")
+texture = ExtResource("3_umxd3")
 
 [node name="background_button" type="TextureRect" parent="background" unique_id=2117991458]
 layout_mode = 1
@@ -66,7 +69,7 @@ offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 96)
-texture = ExtResource("4_umxd3")
+texture = ExtResource("4_xyac8")
 
 [node name="btn_spin" type="TextureButton" parent="background" unique_id=1222113285]
 layout_mode = 1
@@ -83,8 +86,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8331047, 0.8331047)
 pivot_offset = Vector2(100, 100)
-texture_normal = ExtResource("3_rlwr1")
-texture_pressed = ExtResource("4_q7ulo")
+texture_normal = ExtResource("5_g1tf1")
+texture_pressed = ExtResource("6_l53vt")
 stretch_mode = 3
 
 [node name="arrow" type="TextureRect" parent="background" unique_id=146834618]
@@ -98,7 +101,7 @@ offset_bottom = 181.0
 grow_horizontal = 2
 scale = Vector2(0.7046296, 0.7046296)
 pivot_offset = Vector2(100, 0)
-texture = ExtResource("3_q7ulo")
+texture = ExtResource("7_0p05e")
 
 [node name="yourArrow" type="TextureRect" parent="background" unique_id=1693099528]
 layout_mode = 1
@@ -114,7 +117,74 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.66626304, 0.66626304)
 pivot_offset = Vector2(100, 181)
-texture = ExtResource("3_q7ulo")
+texture = ExtResource("7_0p05e")
 flip_v = true
 
+[node name="VScrollBar" type="VScrollBar" parent="." unique_id=1756917363]
+layout_mode = 0
+offset_left = 168.0
+offset_top = -24.0
+offset_right = 208.0
+offset_bottom = 216.0
+min_value = 1.0
+max_value = 20.0
+step = 1.0
+value = 1.0
+rounded = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1871727699]
+position = Vector2(640, 184)
+script = ExtResource("8_xyac8")
+
+[node name="Node2D" type="Node2D" parent="Sprite2D" unique_id=808430482]
+position = Vector2(-640, -184)
+script = ExtResource("9_g1tf1")
+
+[node name="Dm" type="ProgressBar" parent="." unique_id=731348426]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 80.0
+offset_right = 120.0
+offset_bottom = 351.0
+max_value = 10.0
+step = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="PTS" type="Label" parent="." unique_id=2143875143]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 752.0
+offset_top = 24.0
+offset_right = 792.0
+offset_bottom = 47.0
+text = "Points: 0 "
+label_settings = SubResource("LabelSettings_kgtat")
+
+[node name="MPTS" type="Label" parent="." unique_id=1282476399]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 336.0
+offset_top = 32.0
+offset_right = 417.0
+offset_bottom = 55.0
+text = "MPoints: 0"
+
+[node name="romario" type="Label" parent="." unique_id=779366019]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="." unique_id=746656185]
+unique_name_in_owner = true
+process_callback = 0
+
 [connection signal="pressed" from="background/btn_spin" to="." method="_on_btn_spin_pressed"]
+[connection signal="value_changed" from="VScrollBar" to="." method="_on_v_scroll_bar_value_changed"]
+[connection signal="milk" from="Sprite2D/Node2D" to="." method="_on_node_2d_milk"]
+[connection signal="milk" from="Sprite2D/Node2D" to="Sprite2D" method="_on_node_2d_milk"]
+[connection signal="nada" from="Sprite2D/Node2D" to="." method="_on_node_2d_nada"]
+[connection signal="rum" from="Sprite2D/Node2D" to="." method="_on_node_2d_rum"]
+[connection signal="rum" from="Sprite2D/Node2D" to="Sprite2D" method="_on_node_2d_rum"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
