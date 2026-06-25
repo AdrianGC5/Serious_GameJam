@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://cduelui8scene1"]
+
+[ext_resource type="Script" path="res://Scenes/duel_ui.gd" id="1_duelui"]
+
+[node name="DuelUI" type="CanvasLayer"]
+layer = 10
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_duelui")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="EnemyRow" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="EnemyLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/EnemyRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+text = "Enemy"
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer/EnemyRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="EnemyHealthLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/EnemyRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(70, 0)
+text = "10 / 10"
+
+[node name="PlayerRow" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PlayerLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/PlayerRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+text = "You"
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer/PlayerRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="PlayerHealthLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/PlayerRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(70, 0)
+text = "10 / 10"
+
+[node name="DrinkResultLabel" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="UpgradeButtons" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="DeadMansSpinButton" type="Button" parent="Control/MarginContainer/VBoxContainer/UpgradeButtons"]
+layout_mode = 2
+text = "Dead Man's Spin"
+
+[node name="SpillGrogButton" type="Button" parent="Control/MarginContainer/VBoxContainer/UpgradeButtons"]
+layout_mode = 2
+text = "Spill the Grog"
+
+[node name="DavysGambleButton" type="Button" parent="Control/MarginContainer/VBoxContainer/UpgradeButtons"]
+layout_mode = 2
+text = "Davy's Gamble"
+
+[node name="ConfirmButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Take Drinks"

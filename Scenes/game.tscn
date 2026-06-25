@@ -5,6 +5,8 @@
 [ext_resource type="Resource" uid="uid://getpnymt3jho" path="res://Dialogue/tutorial.dialogue" id="2_wrm1d"]
 [ext_resource type="Script" uid="uid://bidw3jogydoy1" path="res://Scenes/opponent.gd" id="3_wowpa"]
 [ext_resource type="PackedScene" uid="uid://dj1rq0xj6kgg2" path="res://Scenes/spin_wheel.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://ca1w8io85qvra" path="res://Scenes/duel_ui.tscn" id="5_duelui"]
+[ext_resource type="PackedScene" uid="uid://jsipqsklrlo1" path="res://UpgradeSystem/upgrade_screen.tscn" id="6_upgrd"]
 
 [sub_resource type="Animation" id="Animation_v158k"]
 length = 0.001
@@ -268,3 +270,10 @@ offset_right = 629.0
 offset_bottom = 424.0
 mouse_filter = 2
 color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="DuelUI" parent="." unique_id=1856625429 instance=ExtResource("5_duelui")]
+
+[node name="UpgradeUILayer" type="CanvasLayer" parent="." unique_id=1863480204]
+layer = 15
+
+[node name="UpgradeScreen" parent="UpgradeUILayer" unique_id=653827780 instance=ExtResource("6_upgrd")]
