@@ -312,3 +312,69 @@ offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Camera2D/UI" unique_id=565669483]
+layout_mode = 0
+offset_left = 820.0
+offset_top = 349.0
+offset_right = 1119.0
+offset_bottom = 626.0
+
+[node name="Label3" type="Label" parent="Camera2D/UI/Panel" unique_id=602067574]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 49.99997
+offset_right = 154.0
+offset_bottom = 99.99997
+scale = Vector2(1.5585604, 1.5585604)
+theme_override_font_sizes/font_size = 36
+text = "SCORE"
+
+[node name="Label" type="Label" parent="Camera2D/UI/Panel" unique_id=365682911]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 124.0
+offset_right = 276.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 36
+text = "Captain | You"
+
+[node name="Label2" type="Label" parent="Camera2D/UI/Panel" unique_id=175469146]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 159.0
+offset_right = 230.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 36
+text = "0 | 0"
+
+[node name="Powerups" type="Button" parent="Camera2D/UI" unique_id=250263808]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 513.0
+offset_right = 216.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 22
+text = "Powerups"
+
+[node name="TimerLabel" type="Label" parent="Camera2D/UI" unique_id=1979831095]
+layout_mode = 0
+offset_left = 390.00003
+offset_top = 2.0000043
+offset_right = 629.00006
+offset_bottom = 52.000004
+scale = Vector2(1.5585604, 1.5585604)
+theme_override_font_sizes/font_size = 36
+text = "TIMER"
+horizontal_alignment = 1
+
+[node name="Timer" type="Label" parent="Camera2D/UI" unique_id=1612840899]
+layout_mode = 0
+offset_left = 390.00003
+offset_top = 51.0
+offset_right = 629.00006
+offset_bottom = 101.0
+scale = Vector2(1.5585604, 1.5585604)
+theme_override_font_sizes/font_size = 36
+text = "00:00"
+horizontal_alignment = 1
