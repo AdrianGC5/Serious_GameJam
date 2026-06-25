@@ -32,6 +32,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-144, -76)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.875061, -16)]
+}
 
 [sub_resource type="Animation" id="Animation_h4fw4"]
 resource_name = "Show"
@@ -61,10 +73,26 @@ tracks/1/keys = {
 "values": [Vector2(-144, -76), Vector2(-144, -259)]
 }
 
+[sub_resource type="Animation" id="Animation_ldgsr"]
+resource_name = "Talk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(0.314, 1),
+"update": 0,
+"values": [Vector2(-4.875061, 9), Vector2(-4.875061, -16)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ldgsr"]
 _data = {
 &"RESET": SubResource("Animation_v158k"),
-&"Show": SubResource("Animation_h4fw4")
+&"Show": SubResource("Animation_h4fw4"),
+&"Talk": SubResource("Animation_ldgsr")
 }
 
 [sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
@@ -262,9 +290,91 @@ libraries/ = SubResource("AnimationLibrary_wowpa")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1166757095]
 
 [node name="Curtain" type="ColorRect" parent="Camera2D" unique_id=1431954107]
+visible = false
 offset_left = -660.0
 offset_top = -376.0
 offset_right = 629.0
 offset_bottom = 424.0
 mouse_filter = 2
 color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="UI" type="Control" parent="Camera2D" unique_id=82554869]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Camera2D/UI" unique_id=565669483]
+layout_mode = 0
+offset_left = 820.0
+offset_top = 349.0
+offset_right = 1119.0
+offset_bottom = 626.0
+
+[node name="Label3" type="Label" parent="Camera2D/UI/Panel" unique_id=602067574]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 49.99997
+offset_right = 154.0
+offset_bottom = 99.99997
+scale = Vector2(1.5585604, 1.5585604)
+theme_override_font_sizes/font_size = 36
+text = "SCORE"
+
+[node name="Label" type="Label" parent="Camera2D/UI/Panel" unique_id=365682911]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 124.0
+offset_right = 276.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 36
+text = "Captain | You"
+
+[node name="Label2" type="Label" parent="Camera2D/UI/Panel" unique_id=175469146]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 159.0
+offset_right = 230.0
+offset_bottom = 209.0
+theme_override_font_sizes/font_size = 36
+text = "0 | 0"
+
+[node name="Powerups" type="Button" parent="Camera2D/UI" unique_id=250263808]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 513.0
+offset_right = 216.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 22
+text = "Powerups"
+
+[node name="TimerLabel" type="Label" parent="Camera2D/UI" unique_id=1979831095]
+layout_mode = 0
+offset_left = 390.00003
+offset_top = 2.0000043
+offset_right = 629.00006
+offset_bottom = 52.000004
+scale = Vector2(1.5585604, 1.5585604)
+theme_override_font_sizes/font_size = 36
+text = "TIMER"
+horizontal_alignment = 1
+
+[node name="Timer" type="Label" parent="Camera2D/UI" unique_id=1612840899]
+layout_mode = 0
+offset_left = 390.00003
+offset_top = 51.0
+offset_right = 629.00006
+offset_bottom = 101.0
+scale = Vector2(1.5585604, 1.5585604)
+theme_override_font_sizes/font_size = 36
+text = "00:00"
+horizontal_alignment = 1
